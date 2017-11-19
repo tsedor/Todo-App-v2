@@ -8,7 +8,7 @@ import { addTodoDialog, addTodoInputValueChange, addTodo } from '../actions/inde
 
 const AddTodoDialog = ({ addTodoDialog, cancelButtonClick, todoInputChange, addTodoInputValue, addTodo }) => (
   <Dialog
-    title="Dodaj todo"
+    title="Dodaj nowe zadanie"
     actions={[
       <FlatButton 
         label="Anuluj" 
