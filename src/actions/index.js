@@ -41,3 +41,15 @@ export const changeFilter = id => {
     id
   }
 }
+
+export const toggleMenu = () => {
+  return {
+    type: 'TOGGLE_MENU'
+  }
+}
+
+export const showAboutDialog = () => {
+  return {
+    type: 'SHOW_ABOUT_DIALOG'
+  }
+}

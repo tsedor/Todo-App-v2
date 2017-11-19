@@ -1,7 +1,9 @@
 const initialState = {
   addTodoDialog: false,
   addTodoInputValue: "",
-  filter: 1
+  filter: 1,
+  menu: false,
+  aboutDialog: false
 }
 
 const appState = (state = initialState, action) => {
@@ -14,6 +16,10 @@ const appState = (state = initialState, action) => {
       return {...state, addTodoInputValue: "", addTodoDialog: false}
     case 'CHANGE_FILTER':
       return {...state, filter: action.id}
+    case 'TOGGLE_MENU':
+      return {...state, menu: !state.menu}
+    case 'SHOW_ABOUT_DIALOG':
+      return {...state, aboutDialog: !state.aboutDialog}
     default:
       return state;
   }

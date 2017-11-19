@@ -7,23 +7,27 @@ import { connect } from 'react-redux';
 import TodoList from './TodoList';
 import FilterSelector from './FilterSelector';
 import AddTodoDialog from './AddTodoDialog';
-import { addTodoDialog } from '../actions/index';
+import AboutDialog from './AboutDialog';
+import LeftMenu from './LeftMenu';
+import { addTodoDialog, toggleMenu } from '../actions/index';
 
-const TodoApp = ({ addTodoButtonClick }) => (
+const TodoApp = ({ addTodoButtonClick, toggleMenu }) => (
   <div>
     <AppBar 
       iconElementRight={<IconButton onClick={addTodoButtonClick}><Add /></IconButton>} 
-      onLeftIconButtonTouchTap={() => console.log('menu icon')} 
-      onRightIconButtonTouchTap={() => console.log('add icon')} 
+      onLeftIconButtonTouchTap={toggleMenu} 
     />
     <FilterSelector />
     <TodoList />
     <AddTodoDialog />
+    <AboutDialog />
+    <LeftMenu />
   </div>
 )
 
 const mapDispatchToProps = dispatch => ({
-  addTodoButtonClick: () => dispatch(addTodoDialog())
+  addTodoButtonClick: () => dispatch(addTodoDialog()),
+  toggleMenu: () => dispatch(toggleMenu())
 })
 
 export default connect(null, mapDispatchToProps)(TodoApp);

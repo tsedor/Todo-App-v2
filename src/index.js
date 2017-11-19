@@ -13,7 +13,8 @@ import './styles/index.css';
 
 const store = createStore(reducers);
 
-store.subscribe(() => console.log(store.getState()))
+// only for dev
+//store.subscribe(() => console.log(store.getState()))
 
 ReactDOM.render(
   <Provider store={store}>
