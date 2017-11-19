@@ -34,3 +34,10 @@ export const addTodoInputValueChange = value => {
     value
   }
 }
+
+export const changeFilter = id => {
+  return {
+    type: 'CHANGE_FILTER',
+    id
+  }
+}

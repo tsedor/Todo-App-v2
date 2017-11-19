@@ -1,6 +1,7 @@
 const initialState = {
   addTodoDialog: false,
-  addTodoInputValue: "asd"
+  addTodoInputValue: "",
+  filter: 1
 }
 
 const appState = (state = initialState, action) => {
@@ -11,6 +12,8 @@ const appState = (state = initialState, action) => {
       return {...state, addTodoInputValue: action.value}
     case 'ADD_TODO':
       return {...state, addTodoInputValue: "", addTodoDialog: false}
+    case 'CHANGE_FILTER':
+      return {...state, filter: action.id}
     default:
       return state;
   }

@@ -8,9 +8,19 @@ import { toggleTodo, removeTodo } from '../actions';
 
 import { connect } from 'react-redux';
 
-const TodoList = ({ todos, toggleTodo, removeTodo }) => (
+const TodoList = ({ todos, filter, toggleTodo, removeTodo }) => (
   <List>
-    {todos.map( todo => {
+    {todos.filter(todo => {
+      switch(filter) {
+        case 2:
+          return todo.completed ? false : true;
+        case 3:
+          return todo.completed ? true : false;
+        default:
+          return true
+      }
+    })
+    .map( todo => {
       return (<ListItem 
         style={{textDecoration: todo.completed ? "line-through" : "none"}} 
         primaryText={todo.todo} 
@@ -24,7 +34,8 @@ const TodoList = ({ todos, toggleTodo, removeTodo }) => (
 );
 
 const mapStateToProps = state => ({
-  todos: state.todos
+  todos: state.todos,
+  filter: state.appState.filter
 })
 
 const mapDispatchToProps = dispatch => ({
