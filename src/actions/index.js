@@ -21,3 +21,16 @@ export const toggleTodo = id => {
     id
   }
 }
+
+export const addTodoDialog = () => {
+  return {
+    type: 'ADD_TODO_DIALOG'
+  }
+}
+
+export const addTodoInputValueChange = value => {
+  return {
+    type: 'ADD_TODO_INPUT_CHANGE',
+    value
+  }
+}
