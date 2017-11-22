@@ -22,7 +22,7 @@ const AddTodoDialog = ({ addTodoDialog, cancelButtonClick, todoInputChange, addT
       />]}
     open={addTodoDialog}
   >
-    <TextField hintText="Treść" fullWidth={true} onChange={todoInputChange} value={addTodoInputValue} onKeyPress={ev => {
+    <TextField hintText="Treść" autoFocus fullWidth={true} onChange={todoInputChange} value={addTodoInputValue} onKeyPress={ev => {
       return (ev.key === "Enter") ? addTodo(addTodoInputValue, nextId) : null;
     }} />
   </Dialog>

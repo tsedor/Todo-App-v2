@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 
 const LeftMenu = ({ menuOpen, leftMenu, showAboutDialog }) => (
   <Drawer open={menuOpen} docked={false} onRequestChange={open => leftMenu(open)}>
-    <IconButton style={{textAlign: "right"}}><Cancel /></IconButton>
+    <IconButton style={{textAlign: "right"}} onClick={() => leftMenu(false)}><Cancel /></IconButton>
       <MenuItem primaryText="O programie" onClick={showAboutDialog} />
   </Drawer>
 )

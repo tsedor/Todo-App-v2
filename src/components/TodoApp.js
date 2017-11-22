@@ -1,7 +1,7 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import Add from 'material-ui/svg-icons/content/add-circle-outline';
-import IconButton from 'material-ui/IconButton';
+import Add from 'material-ui/svg-icons/content/add';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 import { connect } from 'react-redux';
 
 import TodoList from './TodoList';
@@ -14,7 +14,6 @@ import { addTodoDialog, leftMenu } from '../actions/index';
 const TodoApp = ({ addTodoButtonClick, leftMenu }) => (
   <div>
     <AppBar 
-      iconElementRight={<IconButton onClick={addTodoButtonClick}><Add /></IconButton>} 
       onLeftIconButtonTouchTap={() => leftMenu(true)} 
     />
     <FilterSelector />
@@ -22,6 +21,9 @@ const TodoApp = ({ addTodoButtonClick, leftMenu }) => (
     <AddTodoDialog />
     <AboutDialog />
     <LeftMenu />
+    <FloatingActionButton onClick={addTodoButtonClick} style={{left: "auto", right: 25, top: "auto", bottom: 25, position: "fixed"}}>
+      <Add />
+    </FloatingActionButton>
   </div>
 )
 
