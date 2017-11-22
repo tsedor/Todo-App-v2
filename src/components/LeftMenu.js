@@ -1,13 +1,16 @@
 import React from 'react';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import Cancel from 'material-ui/svg-icons/navigation/close';
+import IconButton from 'material-ui/IconButton';
 
-import { showAboutDialog } from '../actions';
+import { showAboutDialog, leftMenu } from '../actions';
 
 import { connect } from 'react-redux';
 
-const LeftMenu = ({ menuOpen, showAboutDialog }) => (
-  <Drawer open={menuOpen}>
+const LeftMenu = ({ menuOpen, leftMenu, showAboutDialog }) => (
+  <Drawer open={menuOpen} docked={false} onRequestChange={open => leftMenu(open)}>
+    <IconButton style={{textAlign: "right"}}><Cancel /></IconButton>
       <MenuItem primaryText="O programie" onClick={showAboutDialog} />
   </Drawer>
 )
@@ -17,7 +20,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  showAboutDialog: () => dispatch(showAboutDialog())
+  showAboutDialog: () => dispatch(showAboutDialog()),
+  leftMenu: open => dispatch(leftMenu(open))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeftMenu);

@@ -1,23 +1,15 @@
-const initialState = {
-  addTodoDialog: false,
-  addTodoInputValue: "",
-  filter: 1,
-  menu: false,
-  aboutDialog: false
-}
-
-const appState = (state = initialState, action) => {
+const appState = (state = null, action) => {
   switch (action.type) {
     case 'ADD_TODO_DIALOG':
       return {...state, addTodoDialog: !state.addTodoDialog}
     case 'ADD_TODO_INPUT_CHANGE':
       return {...state, addTodoInputValue: action.value}
     case 'ADD_TODO':
-      return {...state, addTodoInputValue: "", addTodoDialog: false}
+      return {...state, addTodoInputValue: "", addTodoDialog: false, nextId: state.nextId+1}
     case 'CHANGE_FILTER':
       return {...state, filter: action.id}
-    case 'TOGGLE_MENU':
-      return {...state, menu: !state.menu}
+    case 'LEFT_MENU':
+      return {...state, menu: action.open}
     case 'SHOW_ABOUT_DIALOG':
       return {...state, aboutDialog: !state.aboutDialog}
     default:

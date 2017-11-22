@@ -9,13 +9,13 @@ import FilterSelector from './FilterSelector';
 import AddTodoDialog from './AddTodoDialog';
 import AboutDialog from './AboutDialog';
 import LeftMenu from './LeftMenu';
-import { addTodoDialog, toggleMenu } from '../actions/index';
+import { addTodoDialog, leftMenu } from '../actions/index';
 
-const TodoApp = ({ addTodoButtonClick, toggleMenu }) => (
+const TodoApp = ({ addTodoButtonClick, leftMenu }) => (
   <div>
     <AppBar 
       iconElementRight={<IconButton onClick={addTodoButtonClick}><Add /></IconButton>} 
-      onLeftIconButtonTouchTap={toggleMenu} 
+      onLeftIconButtonTouchTap={() => leftMenu(true)} 
     />
     <FilterSelector />
     <TodoList />
@@ -27,7 +27,7 @@ const TodoApp = ({ addTodoButtonClick, toggleMenu }) => (
 
 const mapDispatchToProps = dispatch => ({
   addTodoButtonClick: () => dispatch(addTodoDialog()),
-  toggleMenu: () => dispatch(toggleMenu())
+  leftMenu: open => dispatch(leftMenu(open))
 })
 
 export default connect(null, mapDispatchToProps)(TodoApp);

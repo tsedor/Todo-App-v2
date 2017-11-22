@@ -1,9 +1,7 @@
-let nextTodoId = 1;
-
-export const addTodo = todo => {
+export const addTodo = (todo, id) => {
   return {
     type: 'ADD_TODO',
-    id: nextTodoId++,
+    id,
     todo
   }
 }
@@ -42,9 +40,10 @@ export const changeFilter = id => {
   }
 }
 
-export const toggleMenu = () => {
+export const leftMenu = open => {
   return {
-    type: 'TOGGLE_MENU'
+    type: 'LEFT_MENU',
+    open
   }
 }
 

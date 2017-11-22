@@ -3,7 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
 import { connect } from 'react-redux';
-import { showAboutDialog, toggleMenu } from '../actions/index';
+import { showAboutDialog, leftMenu } from '../actions/index';
 
 const AboutDialog = ({ open, showAboutDialog }) => (
   <Dialog open={open} actions={[<FlatButton label="OK" onClick={showAboutDialog} />]} style={{textAlign: "center"}}>
@@ -21,7 +21,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   showAboutDialog: () => {
-    dispatch(toggleMenu());
+    dispatch(leftMenu(false));
     dispatch(showAboutDialog())
   }
 })
