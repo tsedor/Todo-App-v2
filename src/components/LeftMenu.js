@@ -3,6 +3,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Cancel from 'material-ui/svg-icons/navigation/close';
 import IconButton from 'material-ui/IconButton';
+import PropTypes from 'prop-types';
 
 import { showAboutDialog, leftMenu } from '../actions';
 
@@ -15,13 +16,19 @@ const LeftMenu = ({ menuOpen, leftMenu, showAboutDialog }) => (
   </Drawer>
 )
 
+LeftMenu.propTypes = {
+  menuOpen: PropTypes.bool.isRequired,
+  leftMenu: PropTypes.func.isRequired,
+  showAboutDialog: PropTypes.func.isRequired
+}
+
 const mapStateToProps = state => ({
   menuOpen: state.appState.menu
 })
 
-const mapDispatchToProps = dispatch => ({
-  showAboutDialog: () => dispatch(showAboutDialog()),
-  leftMenu: open => dispatch(leftMenu(open))
-})
+const mapDispatchToProps = {
+  showAboutDialog,
+  leftMenu
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeftMenu);

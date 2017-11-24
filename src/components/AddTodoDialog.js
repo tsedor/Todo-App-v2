@@ -3,6 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { addTodoDialog, addTodoInputValueChange, addTodo } from '../actions/index';
 
@@ -27,6 +28,16 @@ const AddTodoDialog = ({ addTodoDialog, cancelButtonClick, todoInputChange, addT
     }} />
   </Dialog>
 )
+
+AddTodoDialog.propTypes = {
+  addTodoDialog: PropTypes.bool.isRequired,
+  addTodoInputValue: PropTypes.string.isRequired,
+  nextId: PropTypes.number.isRequired,
+  cancelButtonClick: PropTypes.func.isRequired,
+  todoInputChange: PropTypes.func.isRequired,
+  addTodo: PropTypes.func.isRequired
+}
+
 const mapStateToProps = state => ({
   addTodoDialog: state.appState.addTodoDialog,
   addTodoInputValue: state.appState.addTodoInputValue,

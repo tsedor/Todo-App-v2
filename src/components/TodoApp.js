@@ -10,6 +10,7 @@ import AddTodoDialog from './AddTodoDialog';
 import AboutDialog from './AboutDialog';
 import LeftMenu from './LeftMenu';
 import { addTodoDialog, leftMenu } from '../actions/index';
+import PropTypes from 'prop-types';
 
 const TodoApp = ({ addTodoButtonClick, leftMenu }) => (
   <div>
@@ -26,6 +27,11 @@ const TodoApp = ({ addTodoButtonClick, leftMenu }) => (
     </FloatingActionButton>
   </div>
 )
+
+TodoApp.propTypes = {
+  addTodoButtonClick: PropTypes.func.isRequired,
+  leftMenu: PropTypes.func.isRequired
+}
 
 const mapDispatchToProps = dispatch => ({
   addTodoButtonClick: () => dispatch(addTodoDialog()),

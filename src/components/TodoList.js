@@ -5,6 +5,7 @@ import Clear from 'material-ui/svg-icons/content/clear';
 import IconButton from 'material-ui/IconButton';
 import { redA700 } from 'material-ui/styles/colors';
 import { toggleTodo, removeTodo } from '../actions';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
@@ -32,6 +33,13 @@ const TodoList = ({ todos, filter, toggleTodo, removeTodo }) => (
     
   </List>
 );
+
+TodoList.propTypes = {
+  todos: PropTypes.array.isRequired,
+  filter: PropTypes.number.isRequired,
+  toggleTodo: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired
+}
 
 const mapStateToProps = state => ({
   todos: state.todos,

@@ -1,6 +1,7 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { showAboutDialog, leftMenu } from '../actions/index';
@@ -14,6 +15,11 @@ const AboutDialog = ({ open, showAboutDialog }) => (
     </div>
   </Dialog>
 )
+
+AboutDialog.propTypes = {
+  open: PropTypes.bool.isRequired,
+  showAboutDialog: PropTypes.func.isRequired
+}
 
 const mapStateToProps = state => ({
   open: state.appState.aboutDialog

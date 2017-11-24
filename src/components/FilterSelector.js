@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { changeFilter } from '../actions/index';
@@ -12,6 +13,11 @@ const FilterSelector = ({ filter, changeFilter }) => (
     <MenuItem value={3} primaryText="Zakończone" />
   </SelectField>
 )
+
+FilterSelector.propTypes = {
+  filter: PropTypes.number.isRequired,
+  changeFilter: PropTypes.func.isRequired
+}
 
 const mapStateToProps = state => ({
   filter: state.appState.filter
