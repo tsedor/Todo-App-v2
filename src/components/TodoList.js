@@ -8,20 +8,11 @@ import { toggleTodo, removeTodo } from '../actions';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
+import { getVisibleTodos } from '../reducers/todos';
 
-const TodoList = ({ todos, filter, toggleTodo, removeTodo }) => (
+const TodoList = ({ todos, filter, toggleTodo, removeTodo, tmp }) => (
   <List>
-    {todos.filter(todo => {
-      switch(filter) {
-        case 2:
-          return todo.completed ? false : true;
-        case 3:
-          return todo.completed ? true : false;
-        default:
-          return true
-      }
-    })
-    .map( todo => {
+    {tmp.map( todo => {
       return (<ListItem 
         style={{textDecoration: todo.completed ? "line-through" : "none"}} 
         primaryText={todo.todo} 
@@ -43,6 +34,7 @@ TodoList.propTypes = {
 
 const mapStateToProps = state => ({
   todos: state.todos,
+  tmp: getVisibleTodos(state.todos, state.appState.filter),
   filter: state.appState.filter
 })
 
