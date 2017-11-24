@@ -11,7 +11,7 @@ const appState = (state = null, action) => {
     case 'LEFT_MENU':
       return {...state, menu: action.open}
     case 'SHOW_ABOUT_DIALOG':
-      return {...state, aboutDialog: !state.aboutDialog}
+      return {...state, menu: false, aboutDialog: !state.aboutDialog}
     default:
       return state;
   }

@@ -26,9 +26,6 @@ const initialState = {todos, appState: {...initialAppState, nextId}}
 
 const store = createStore(reducers, initialState);
 
-// only for dev
-store.subscribe(() => console.log(store.getState()))
-
 store.subscribe(() => {
   localStorage.setItem("todos", JSON.stringify(store.getState().todos));
   localStorage.setItem("nextId", store.getState().appState.nextId);

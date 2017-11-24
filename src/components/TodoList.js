@@ -38,9 +38,9 @@ const mapStateToProps = state => ({
   filter: state.appState.filter
 })
 
-const mapDispatchToProps = dispatch => ({
-  toggleTodo: id => dispatch(toggleTodo(id)),
-  removeTodo: id => dispatch(removeTodo(id))
-})
+const mapDispatchToProps = {
+  toggleTodo,
+  removeTodo
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
