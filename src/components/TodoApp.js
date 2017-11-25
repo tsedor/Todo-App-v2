@@ -33,9 +33,9 @@ TodoApp.propTypes = {
   leftMenu: PropTypes.func.isRequired
 }
 
-const mapDispatchToProps = dispatch => ({
-  addTodoButtonClick: () => dispatch(addTodoDialog()),
-  leftMenu: open => dispatch(leftMenu(open))
-})
+const mapDispatchToProps = {
+  addTodoButtonClick: addTodoDialog,
+  leftMenu
+}
 
 export default connect(null, mapDispatchToProps)(TodoApp);

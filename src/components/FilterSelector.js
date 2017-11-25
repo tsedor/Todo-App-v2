@@ -23,8 +23,8 @@ const mapStateToProps = state => ({
   filter: state.appState.filter
 })
 
-const mapDispatchToProps = dispatch => ({
-  changeFilter: id => dispatch(changeFilter(id))
-})
+const mapDispatchToProps = {
+  changeFilter
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterSelector);
